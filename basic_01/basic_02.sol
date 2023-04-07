@@ -26,4 +26,17 @@ contract Basic_02 {
     address payable public _address1 = payable(_address);
     //地址类型成员
     uint256 public balance = _address1.balance;
+
+    //定长字节数据
+    bytes32 public _byte32 = "MiniSoldity";
+    bytes1 public  _byte = _byte32[0];
+
+    //枚举
+    enum ActionSet{Buy,Hold,Sell}
+    //创建enum变量action
+    ActionSet action = ActionSet.Sell;
+    //显示的和unit进行转换
+    function enumToUint() external view returns (uint){
+        return uint(action);
+    }
 }
